@@ -36,19 +36,17 @@ container:
 	./meta/launch
 
 deps:
-	rm -rf $(SKALIBS_DIR) $(EXECLINE_DIR) $(SKALIBS_TAR) $(EXECLINE_TAR) $(S6_DIR) $(S6_TAR)
-	mkdir $(SKALIBS_DIR) $(EXECLINE_DIR) $(S6_DIR)
+	rm -rf $(SKALIBS_DIR) $(EXECLINE_DIR) $(SKALIBS_TAR) $(EXECLINE_TAR)
+	mkdir $(SKALIBS_DIR) $(EXECLINE_DIR)
 	curl -sLo $(SKALIBS_TAR) $(SKALIBS_URL)
 	tar -x -C $(SKALIBS_DIR) -f $(SKALIBS_TAR)
 	curl -sLo $(EXECLINE_TAR) $(EXECLINE_URL)
 	tar -x -C $(EXECLINE_DIR) -f $(EXECLINE_TAR)
-	curl -sLo $(S6_TAR) $(S6_URL)
-	tar -x -C $(S6_DIR) -f $(S6_TAR)
 
 build: submodule deps
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
-	cd $(BUILD_DIR) && CC="musl-gcc" ./configure $(CONF_FLAGS) $(PATH_FLAGS) $(SKALIBS_PATH) $(EXECLINE_PATH) $(S6_PATH)
+	cd $(BUILD_DIR) && CC="musl-gcc" ./configure $(CONF_FLAGS) $(PATH_FLAGS) $(SKALIBS_PATH) $(EXECLINE_PATH)
 	make -C $(BUILD_DIR)
 	make -C $(BUILD_DIR) install
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
