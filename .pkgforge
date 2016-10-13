@@ -16,6 +16,7 @@ with_flags = %w(skalibs execline).map do |dep_name|
     :"with-dynlib=#{dep_path}/usr/lib",
   ]
 end.flatten
+with_flags = with_flags.map { |x| [x, nil] }.to_h
 
 configure_flags(
   prefix: '/usr',
