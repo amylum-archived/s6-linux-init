@@ -21,6 +21,7 @@ with_flags = with_flags.map { |x| [x, nil] }.to_h
 configure_flags(
   prefix: '/usr',
   sbindir: '/usr/bin',
+  'with-sysdeps': "#{dep(:skalibs)}/usr/lib/skalibs/sysdeps",
   **with_flags
 )
 
