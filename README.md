@@ -1,7 +1,7 @@
 s6-linux-init
 =========
 
-[![Build Status](https://img.shields.io/circleci/project/amylum/s6-linux-init/master.svg)](https://circleci.com/gh/amylum/s6-linux-init)
+[![Build Status](https://img.shields.io/travis/com/amylum/s6-linux-init.svg)](https://travis-ci.com/amylum/s6-linux-init)
 [![GitHub release](https://img.shields.io/github/release/amylum/s6-linux-init.svg)](https://github.com/amylum/s6-linux-init/releases)
 [![ISC Licensed](https://img.shields.io/badge/license-ISC-green.svg)](https://tldrlegal.com/license/-isc-license)
 
